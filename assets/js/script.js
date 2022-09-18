@@ -1,10 +1,6 @@
 var dateDisplayEl = $('#currentDay');
 var currentTime = moment().format('H');
 var saveButton =$(".saveBtn");
-// var past = past < currentTime;
-// var present = currentTime;
-// var future = future > currentTime;
-//var textInput = document.querySelector(".text");
 var activity = document.getElementsByClassName('text');
 
 var now = currentTime;
@@ -17,72 +13,45 @@ function displayDate() {
 
 displayDate();
 
-var value = $(this).siblings('.description').val();
-var time =$(this).parent().attr('id');
+var rows = document.getElementsByClassName("row");
+var currentTime = parseInt(moment().format('H'));
+
+Array.from(rows).forEach(row => {
+    let 
+    rowIdString = row.id,
+    rowHour;
+    if (rowIdString) {
+        rowHour = parseInt(rowIdString);
+    }
+    if (rowHour) {
+        if(currentTime === rowHour) {
+            setColor(row, "red");
+        }
+        else if ((currentTime < rowHour) && (currentTime > rowHour -6)) {
+            setColor(row, "green");
+        }
+        else if ((currentTime > rowHour) && (currentTime < +6)) {
+            setColor(row, "grey");
+        }
+        else {
+            setColor(row, "white");
+        }
+    }
+});
+
+function setColor(element, color) {
+    element.style.backgroundColor = color;
+}
+
+// var value = $(this).siblings('.description').val();
+// var time =$(this).parent().attr('id');
 
 saveButton.on("click", function() {
     console.log(saveButton);
     });
 
 
-// function saveEvent() {
-//     var activity = {
-//         activity: activity.value
-//     };
-//     localStorage.setItem("activity");
-// }
 
-// function renderEvent() {
-//     var activity = JSON.parse(localStorage.getItem("activity"));
-//     if (activity !== null) {
-//         document.getElementById("saved-event").innerHTML = activity;
-//     }
-//     else {
-//         return;
-//     }
-// }
-
-
-
-// saveButton.addEventListener("click", function(activity) {
-//     console.log(saveButton);
-//     activity.preventDefault();
-//     saveEvent();
-//     renderEvent();
-// });
-
-// function init() {
-//     renderEvent();
-// }
-// init();
-
-// function backgroundColor(){
-//     if (now === currentTime){
-//         document.getElementsByClassName(present);
-//     }
-//     else if (now < currentTime){
-//         document.getElementsByClassName(past);
-//     }
-//     else {
-//         document.getElementsByClassName(future);
-//     }
-// }
-// saveButtonEl.on('click', function(event) {
-//     event.preventDefault();
-
-//     var text = document.querySelector(".text").value;
-//     localStorage.setItem("text", text);
-//     console.log(value);
-// })
-// $(".text").click(function() {
-//     var storage = $(".text").val();
-//     if(localStorage.getItem("local", storage)) {
-//         localStorage.setItem("local", storage);
-//         console.log(storage);
-//     }
-// });
-
-//use a simular function from above to get current time to work for the past present future stuff possible querysellector for the itme
 
 //write a save to local storage button
-//funcrtion within a function for the input box and the save to local storage button
+//function within a function for the input box and the save to local storage button
