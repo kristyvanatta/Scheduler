@@ -1,10 +1,11 @@
 var dateDisplayEl = $('#currentDay');
 var currentTime = moment().format('H');
-var saveButtonEl = $('.saveBtn');
+var saveButton = getElemetByClassName("saveBtn");
 var past = past < currentTime;
 var present = currentTime;
 var future = future > currentTime;
 //var textInput = document.querySelector(".text");
+var event = document.getElementsByClassName('text');
 
     
 function displayDate() {
@@ -14,28 +15,63 @@ function displayDate() {
 
 displayDate();
 
-
 var now = currentTime;
 console.log(now);
-function backgroundColor(){
-    if (now === currentTime){
-        document.getElementsByClassName(present);
-    }
-    else if (now < currentTime){
-        document.getElementsByClassName(past);
+
+function saveEvent() {
+    var event = {
+        event: event.value
+    };
+    localStorage.setItem("event");
+}
+
+function renderEvent() {
+    var event = JSON.parse(localStorage.getItem("event"));
+    if (event !== null) {
+        document.getElementById("saved-event").innerHTML = event;
     }
     else {
-        document.getElementsByClassName(future);
+        return;
     }
 }
-saveButtonEl.on('click', function(event) {
+
+
+saveButton.addEventListener("click", function(event) {
     event.preventDefault();
+    saveEvent();
+    renderEvent();
+});
 
-    var text = document.querySelector(".text").value;
-    localStorage.setItem("text", text);
-    console.log(value);
-})
+function init() {
+    renderEvent();
+}
+init();
 
+// function backgroundColor(){
+//     if (now === currentTime){
+//         document.getElementsByClassName(present);
+//     }
+//     else if (now < currentTime){
+//         document.getElementsByClassName(past);
+//     }
+//     else {
+//         document.getElementsByClassName(future);
+//     }
+// }
+// saveButtonEl.on('click', function(event) {
+//     event.preventDefault();
+
+//     var text = document.querySelector(".text").value;
+//     localStorage.setItem("text", text);
+//     console.log(value);
+// })
+// $(".text").click(function() {
+//     var storage = $(".text").val();
+//     if(localStorage.getItem("local", storage)) {
+//         localStorage.setItem("local", storage);
+//         console.log(storage);
+//     }
+// });
 
 //use a simular function from above to get current time to work for the past present future stuff possible querysellector for the itme
 
