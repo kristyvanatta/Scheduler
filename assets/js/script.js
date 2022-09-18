@@ -1,11 +1,11 @@
 var dateDisplayEl = $('#currentDay');
 var currentTime = moment().format('H');
-var saveButton = getElemetByClassName("saveBtn");
-var past = past < currentTime;
-var present = currentTime;
-var future = future > currentTime;
+var saveButton = $(".saveBtn");
+// var past = past < currentTime;
+// var present = currentTime;
+// var future = future > currentTime;
 //var textInput = document.querySelector(".text");
-var event = document.getElementsByClassName('text');
+var activity = document.getElementsByClassName('text');
 
     
 function displayDate() {
@@ -19,16 +19,16 @@ var now = currentTime;
 console.log(now);
 
 function saveEvent() {
-    var event = {
-        event: event.value
+    var activity = {
+        activity: activity.value
     };
-    localStorage.setItem("event");
+    localStorage.setItem("activity");
 }
 
 function renderEvent() {
-    var event = JSON.parse(localStorage.getItem("event"));
-    if (event !== null) {
-        document.getElementById("saved-event").innerHTML = event;
+    var activity = JSON.parse(localStorage.getItem("activity"));
+    if (activity !== null) {
+        document.getElementById("saved-event").innerHTML = activity;
     }
     else {
         return;
@@ -36,8 +36,9 @@ function renderEvent() {
 }
 
 
-saveButton.addEventListener("click", function(event) {
-    event.preventDefault();
+saveButton.addEventListener("click", function(activity) {
+    console.log(saveButton);
+    activity.preventDefault();
     saveEvent();
     renderEvent();
 });
