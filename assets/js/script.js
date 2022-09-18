@@ -1,6 +1,7 @@
 var dateDisplayEl = $('#currentDay');
 var currentTime = moment().format('H');
-var saveButton = $(".saveBtn");
+var saveButtonArray = $(".saveBtn");
+var saveButton =$(".saveBtn");
 // var past = past < currentTime;
 // var present = currentTime;
 // var future = future > currentTime;
@@ -35,18 +36,23 @@ function renderEvent() {
     }
 }
 
-
-saveButton.addEventListener("click", function(activity) {
+saveButtonArray.forEach((saveButton) => {
+    saveButton.addEventListener("click", function (_event) {
     console.log(saveButton);
-    activity.preventDefault();
-    saveEvent();
-    renderEvent();
+    });
 });
 
-function init() {
-    renderEvent();
-}
-init();
+// saveButton.addEventListener("click", function(activity) {
+//     console.log(saveButton);
+//     activity.preventDefault();
+//     saveEvent();
+//     renderEvent();
+// });
+
+// function init() {
+//     renderEvent();
+// }
+// init();
 
 // function backgroundColor(){
 //     if (now === currentTime){
