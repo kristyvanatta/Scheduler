@@ -1,6 +1,5 @@
 var dateDisplayEl = $('#currentDay');
 var currentTime = moment().format('H');
-var saveButtonArray = $(".saveBtn");
 var saveButton =$(".saveBtn");
 // var past = past < currentTime;
 // var present = currentTime;
@@ -8,6 +7,8 @@ var saveButton =$(".saveBtn");
 //var textInput = document.querySelector(".text");
 var activity = document.getElementsByClassName('text');
 
+var now = currentTime;
+console.log(now);
     
 function displayDate() {
     var rightNow = moment().format('dddd, MMMM Do YYYY');
@@ -16,31 +17,32 @@ function displayDate() {
 
 displayDate();
 
-var now = currentTime;
-console.log(now);
+var value = $(this).siblings('.description').val();
+var time =$(this).parent().attr('id');
 
-function saveEvent() {
-    var activity = {
-        activity: activity.value
-    };
-    localStorage.setItem("activity");
-}
-
-function renderEvent() {
-    var activity = JSON.parse(localStorage.getItem("activity"));
-    if (activity !== null) {
-        document.getElementById("saved-event").innerHTML = activity;
-    }
-    else {
-        return;
-    }
-}
-
-saveButtonArray.forEach((saveButton) => {
-    saveButton.addEventListener("click", function (_event) {
+saveButton.on("click", function() {
     console.log(saveButton);
     });
-});
+
+
+// function saveEvent() {
+//     var activity = {
+//         activity: activity.value
+//     };
+//     localStorage.setItem("activity");
+// }
+
+// function renderEvent() {
+//     var activity = JSON.parse(localStorage.getItem("activity"));
+//     if (activity !== null) {
+//         document.getElementById("saved-event").innerHTML = activity;
+//     }
+//     else {
+//         return;
+//     }
+// }
+
+
 
 // saveButton.addEventListener("click", function(activity) {
 //     console.log(saveButton);
