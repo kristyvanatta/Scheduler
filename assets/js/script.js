@@ -42,22 +42,25 @@ function setColor(element, color) {
     console.log();
 }; 
 
-// var value = $(this).siblings('.container').val();
-// var time =$(this).parent().attr('id');
 
-saveButton.on("click", function() {
-    localStorage.setItem("input", "text");
-    localStorage.getItem("text")
-    console.log(localStorage)
+var hourSaved = "text";
+
+saveButton.on("click", function(e) {
+    console.log("click", e.target);
+    const parent = e.target.parentElement;
+    console.log("parent", parent);
+    const hour =parent.children[0].textContent;
+    const value =parent.children[1].value;
+    console.log("hi", hour, value);
+    localStorage.setItem(hour,value);
+    console.log("getting",localStorage.getItem("12:00"));
+    
+    
+    console.log(hourSaved)
     console.log(saveButton);
     });
 
-// saveButton.addEventListener("click", function() {
-//     var id = this.getAttribute("data-id");
-//     var text = document.getElementById(id).value;
-//     localStorage.setItem(id,text);
-//     console.log(text);
-// });
+
 
 
 
