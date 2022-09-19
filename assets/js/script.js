@@ -14,7 +14,6 @@ function displayDate() {
 displayDate();
 
 var rows = document.getElementsByClassName("row");
-var currentTime = parseInt(moment().format('H'));
 
 Array.from(rows).forEach(row => {
     let 
@@ -25,16 +24,13 @@ Array.from(rows).forEach(row => {
     }
     if (rowHour) {
         if(currentTime === rowHour) {
-            setColor(row, "red");
+            setColor(row, "#ff6961");
         }
         else if ((currentTime < rowHour) && (currentTime > rowHour -6)) {
-            setColor(row, "green");
-        }
-        else if ((currentTime > rowHour) && (currentTime < +6)) {
-            setColor(row, "grey");
+            setColor(row, "#77dd77");
         }
         else {
-            setColor(row, "white");
+            setColor(row, "#d3d3d3");
         }
     }
 });

@@ -21,3 +21,7 @@ THEN the saved events persist
 ## Functionality
 The following demonstrates the functionality of the Scheduler
 ![A user clicks on slots on the color-coded calendar and edits the events.](assets\images\05-third-party-apis-homework-demo.gif)
+
+## GitHub Links
+https://github.com/kristyvanatta/Scheduler
+https://kristyvanatta.github.io/Scheduler/
