@@ -23,6 +23,7 @@ Array.from(rows).forEach(row => {
         rowHour = parseInt(rowIdString);
     }
     if (rowHour) {
+        console.log();
         if(currentTime === rowHour) {
             setColor(row, "#ff6961");
         }
@@ -37,7 +38,8 @@ Array.from(rows).forEach(row => {
 
 function setColor(element, color) {
     element.style.backgroundColor = color;
-};
+    console.log();
+}; 
 
 // var value = $(this).siblings('.container').val();
 // var time =$(this).parent().attr('id');
