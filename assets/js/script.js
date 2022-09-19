@@ -19,15 +19,16 @@ Array.from(rows).forEach(row => {
     let 
     rowIdString = row.id,
     rowHour;
+    var currentTimeNumber = Number(currentTime);
     if (rowIdString) {
         rowHour = parseInt(rowIdString);
     }
     if (rowHour) {
         console.log();
-        if(currentTime === rowHour) {
+        if(currentTimeNumber === rowHour) {
             setColor(row, "#ff6961");
         }
-        else if ((currentTime < rowHour) && (currentTime > rowHour -6)) {
+        else if ((currentTimeNumber < rowHour) && (currentTime > rowHour -6)) {
             setColor(row, "#77dd77");
         }
         else {
@@ -45,6 +46,9 @@ function setColor(element, color) {
 // var time =$(this).parent().attr('id');
 
 saveButton.on("click", function() {
+    localStorage.setItem("input", "text");
+    localStorage.getItem("text")
+    console.log(localStorage)
     console.log(saveButton);
     });
 
