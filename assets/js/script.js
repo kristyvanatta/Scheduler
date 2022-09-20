@@ -53,18 +53,19 @@ saveButton.on("click", function(e) {
     const value =parent.children[1].value;
     console.log("hi", hour, value);
     localStorage.setItem(hour,value);
-    console.log("getting",localStorage.getItem("hour"));
     
     
     console.log(hourSaved)
     console.log(saveButton);
 });
+console.log("getting",localStorage.getItem("09:00"));
 
-// for (text in localStorage) {
-//     console.log(localStorage.getItem(hourSaved));
-// }
+for (var i =0; i < 9; i++) {
+    var tempNumber = i + 9;
+    var tempIndex = JSON.stringify(tempNumber);
+    console.log(tempIndex)
+    document.getElementById("text-" + tempIndex).innerHTML =localStorage.getItem(tempIndex + ":00");
 
-
-localStorage.getItem('hour');
+}
 
 
