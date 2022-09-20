@@ -43,7 +43,7 @@ function setColor(element, color) {
 }; 
 
 
-var hourSaved = "text";
+var hourSaved = "";
 
 saveButton.on("click", function(e) {
     console.log("click", e.target);
@@ -53,14 +53,18 @@ saveButton.on("click", function(e) {
     const value =parent.children[1].value;
     console.log("hi", hour, value);
     localStorage.setItem(hour,value);
-    console.log("getting",localStorage.getItem("12:00"));
+    console.log("getting",localStorage.getItem("hour"));
     
     
     console.log(hourSaved)
     console.log(saveButton);
-    });
+});
+
+// for (text in localStorage) {
+//     console.log(localStorage.getItem(hourSaved));
+// }
 
 
-
+localStorage.getItem('hour');
 
 
