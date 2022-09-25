@@ -5,7 +5,7 @@ var saveButton =$(".saveBtn");
 
 var now = currentTime;
 console.log(now);
-    
+//sets the date for the scheduler
 function displayDate() {
     var rightNow = moment().format('dddd, MMMM Do YYYY');
     dateDisplayEl.text(rightNow);
@@ -14,7 +14,7 @@ function displayDate() {
 displayDate();
 
 var rows = document.getElementsByClassName("row");
-
+//sets the color for past, present, future
 Array.from(rows).forEach(row => {
     let 
     rowIdString = row.id,
@@ -44,7 +44,7 @@ function setColor(element, color) {
 
 
 var hourSaved = "";
-
+//save buttons for each time block
 saveButton.on("click", function(e) {
     console.log("click", e.target);
     const parent = e.target.parentElement;
@@ -59,7 +59,7 @@ saveButton.on("click", function(e) {
     console.log(saveButton);
 });
 console.log("getting",localStorage.getItem("09:00"));
-
+//iterates through time blocks to display saved items
 for (var i =0; i < 9; i++) {
     var tempNumber = i + 9;
     var tempIndex = JSON.stringify(tempNumber);
